@@ -1,20 +1,17 @@
-# Linguagem Utilizada para Desenvolver a Aplicação
-language: python
 
-# Versão que a aplicação suporta.
+  language: python
 python:
-  - "3.6.3"
-
-# Faz a instalação com Sudo, para ter privilégio de Super Usuário.
-sudo: false
-
-# Instalação de Módulos que são necessários para a Aplicação.
+  - "2.7"
+  - "3.8"
+  # PyPy versions
+  - "pypy"   # currently Python 2.7.13, PyPy 7.1.1
+  - "pypy3"  # currently Python 3.6.1,  PyPy 7.1.1-beta0
+# command to install dependencies
 install:
-  - pip install flask
-
-# Defini o script de Teste que deve rodar toda vez que o código for alterado.
-script:
-  - python test.py
+  - pip install -r requirements.txt
+  - pip install .
+# command to run tests
+script: pytest
 
 # Defini que o processo de Deploy será na Plataforma Heroku. É necessário informar o nome da APP criada no Heroku
 deploy:
